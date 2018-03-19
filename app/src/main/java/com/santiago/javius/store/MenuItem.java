@@ -11,10 +11,6 @@ public class MenuItem
     private String myName;
     private double myPrice;
 
-    final double priceBurger = 5.99;
-    final double priceFries = 3.99;
-    final double priceSoda = 1.99;
-
     public MenuItem()
     {
 
@@ -23,6 +19,14 @@ public class MenuItem
     {
         myName = name;
         myPrice = price;
+    }
+    public String getName()
+    {
+        return myName;
+    }
+    public double getPrice()
+    {
+        return myPrice;
     }
 
 }
