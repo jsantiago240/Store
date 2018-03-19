@@ -6,8 +6,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import static android.view.View.VISIBLE;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -28,7 +31,33 @@ public class MainActivity extends AppCompatActivity
     TextView textFriesQuantity;
     TextView textSodaQuantity;
 
+    TextView textBurgerPrice;
+    TextView textFriesPrice;
+    TextView textSodaPrice;
+
+    Button btnBuyBurger;
+    Button btnBuyFries;
+    Button btnBuySoda;
+
+    Button btnRemBurger;
+    Button btnRemFries;
+    Button btnRemSoda;
+
     EditText editName;
+    String username;
+
+    //Cart Screen*********************************************
+    LinearLayout layoutReceipt;
+    TextView textThanks;
+
+    TextView textNumBurgers;
+    TextView textNumFries;
+    TextView textNumSodas;
+
+    TextView textSubtotal;
+    TextView textTax;
+    TextView textTotal;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -40,12 +69,36 @@ public class MainActivity extends AppCompatActivity
         textFriesQuantity = findViewById(R.id.textFriesQuantity);
         textSodaQuantity = findViewById(R.id.textSodaQuantity);
 
+        textBurgerPrice = findViewById(R.id.textBurgerPrice);
+        textFriesPrice = findViewById(R.id.textFriesPrice);
+        textSodaPrice = findViewById(R.id.textSodaPrice);
+
         imageBurger = findViewById(R.id.imageBurger);
         imageFries = findViewById(R.id.imageFries);
         imageSoda = findViewById(R.id.imageSoda);
 
+        btnBuyBurger = findViewById(R.id.btnBuyBurger);
+        btnBuyFries = findViewById(R.id.btnBuyFries);
+        btnBuySoda = findViewById(R.id.btnBuySoda);
+
+        btnRemBurger = findViewById(R.id.btnRemoveBurger);
+        btnRemFries = findViewById(R.id.btnRemoveFries);
+        btnRemSoda = findViewById(R.id.btnRemoveSoda);
+
         editName = findViewById(R.id.editName);
         btnCart = findViewById(R.id.btnCart);
+
+        //Cart Screen****************************************
+        layoutReceipt = findViewById(R.id.layoutReceipt);
+        textThanks = findViewById(R.id.textThanks);
+
+        textNumBurgers = findViewById(R.id.textNumBurgers);
+        textNumFries = findViewById(R.id.textNumFries);
+        textNumSodas = findViewById(R.id.textNumSodas);
+
+        textSubtotal = findViewById(R.id.textSubtotal);
+        textTax = findViewById(R.id.textTax);
+        textTotal = findViewById(R.id.textTotal);
     }
 
     public void btnBuyBurgerClicked(View view)
@@ -101,9 +154,51 @@ public class MainActivity extends AppCompatActivity
     {
         if(editName.getText().toString().equals(""))
         {
-            Toast.makeText(MainActivity.this, "1 Soda Removed From Cart", Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this, "Please enter name first", Toast.LENGTH_LONG).show();
+        }
+        else
+        {
+            username = editName.getText().toString();
+            clearScreen();
+            textThanks.setText("Thanks, " + username);
+            textThanks.setVisibility(VISIBLE);
+
+            textNumBurgers.setText("Burgers: " + cart.getAmountOf(burger));
+            textNumFries.setText("Fries: " + cart.getAmountOf(fries));
+            textNumSodas.setText("Sodas: " + cart.getAmountOf(soda));
+
+            textSubtotal.setText("Subtotal: $" + cart.getSubtotal());
+            textTax.setText("Tax: $" + cart.getTax() + "");
+            textTotal.setText("Total: $" + cart.getTotal()+"");
+
+            layoutReceipt.setVisibility(VISIBLE);
         }
 
     }
+
+    public void clearScreen()
+    {
+        imageBurger.setVisibility(View.INVISIBLE);
+        textBurgerQuantity.setVisibility(View.INVISIBLE);
+        btnBuyBurger.setVisibility(View.INVISIBLE);
+        btnRemBurger.setVisibility(View.INVISIBLE);
+        textBurgerPrice.setVisibility(View.INVISIBLE);
+
+        imageFries.setVisibility(View.INVISIBLE);
+        textFriesQuantity.setVisibility(View.INVISIBLE);
+        btnBuyFries.setVisibility(View.INVISIBLE);
+        btnRemFries.setVisibility(View.INVISIBLE);
+        textFriesPrice.setVisibility(View.INVISIBLE);
+
+        imageSoda.setVisibility(View.INVISIBLE);
+        textSodaQuantity.setVisibility(View.INVISIBLE);
+        btnBuySoda.setVisibility(View.INVISIBLE);
+        btnRemSoda.setVisibility(View.INVISIBLE);
+        textSodaPrice.setVisibility(View.INVISIBLE);
+
+        editName.setVisibility(View.INVISIBLE);
+        btnCart.setVisibility(View.INVISIBLE);
+    }
+
 
 }

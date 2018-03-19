@@ -229,4 +229,73 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
+    <TextView
+        android:id="@+id/textThanks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Thanks, "
+        android:textSize="28sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutReceipt" />
+
+    <LinearLayout
+        android:id="@+id/layoutReceipt"
+        android:layout_width="314dp"
+        android:layout_height="252dp"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textNumBurgers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Burgers: "
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/textNumFries"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fries: "
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/textNumSodas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sodas:"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/textSubtotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Subtotal:"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/textTax"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tax: "
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/textTotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total:"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
