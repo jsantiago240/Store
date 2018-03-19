@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.santiago.javius.store.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textBurger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imageBurger"
+            android:layout_toEndOf="@+id/imageBurger"
+            android:layout_toRightOf="@+id/imageBurger"
+            android:text="Price: $5.99"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textSize="28sp" />
+
+        <TextView
+            android:id="@+id/textSoda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageFries"
+            android:layout_marginTop="11dp"
+            android:layout_toEndOf="@+id/imageSoda"
+            android:layout_toRightOf="@+id/imageSoda"
+            android:text="Price: $1.99"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textSize="28sp" />
+
+        <ImageView
+            android:id="@+id/imageSoda"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_alignLeft="@+id/imageFries"
+            android:layout_alignStart="@+id/imageFries"
+            android:layout_below="@+id/imageFries"
+            android:src="@drawable/soda" />
+
+        <TextView
+            android:id="@+id/textFries"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageBurger"
+            android:layout_toEndOf="@+id/imageFries"
+            android:layout_toRightOf="@+id/imageFries"
+            android:text="Price: $3.99"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textSize="28sp" />
+
+        <ImageView
+            android:id="@+id/imageFries"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_alignLeft="@+id/imageBurger"
+            android:layout_alignStart="@+id/imageBurger"
+            android:layout_below="@+id/imageBurger"
+            android:src="@drawable/frenchfries" />
+
+        <ImageView
+            android:id="@+id/imageBurger"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="39dp"
+            android:layout_marginStart="39dp"
+            android:layout_marginTop="92dp"
+            android:src="@drawable/burger"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
